@@ -50,19 +50,19 @@ namespace GoogleARCore.Examples.HelloAR
         /// <summary>
         /// A model to place when a raycast from a user touch hits a vertical plane.
         /// </summary>
-        public GameObject AndyVerticalPlanePrefab;
+        // public GameObject AndyVerticalPlanePrefab;
 
         /// <summary>
         /// A model to place when a raycast from a user touch hits a horizontal plane.
         /// </summary>
-        public GameObject AndyHorizontalPlanePrefab;
+        // public GameObject AndyHorizontalPlanePrefab;
 
         /// <summary>
         /// A model to place when a raycast from a user touch hits a feature point.
         /// </summary>
         private GameObject m_PointPrefab;
 
-        public GameObject[] PointPrefabArray ;
+        public GameObject[] PointPrefabArray;
 
         /// <summary>
         /// The rotation in degrees need to apply to model when the Andy model is placed.
@@ -74,8 +74,8 @@ namespace GoogleARCore.Examples.HelloAR
         /// otherwise false.
         /// </summary>
         private bool m_IsQuitting = false;
-        
-        private int m_Prefab_index= 0;
+
+        private int m_Prefab_index = 0;
 
         /// <summary>
         /// The Unity Awake() method.
@@ -135,16 +135,16 @@ namespace GoogleARCore.Examples.HelloAR
                         DetectedPlane detectedPlane = hit.Trackable as DetectedPlane;
                         if (detectedPlane.PlaneType == DetectedPlaneType.Vertical)
                         {
-                            prefab = AndyVerticalPlanePrefab;
+                            prefab = _GetCurrentPrefab();
                         }
                         else
                         {
-                            prefab = AndyHorizontalPlanePrefab;
+                            prefab = _GetCurrentPrefab();
                         }
                     }
                     else
                     {
-                        prefab = AndyHorizontalPlanePrefab;
+                        prefab = _GetCurrentPrefab();
                     }
 
                     // Instantiate Andy model at the hit pose.
@@ -238,9 +238,14 @@ namespace GoogleARCore.Examples.HelloAR
             }
         }
 
-        private GameObject _GetCurrentPrefab(){
-            int n = Random.Range(0, PointPrefabArray.Length - 1);
-            return PointPrefabArray[n];
+        private GameObject _GetCurrentPrefab()
+        {
+            ++m_Prefab_index;
+            if (m_Prefab_index > PointPrefabArray.Length)
+            {
+                m_Prefab_index = 0;
+            }
+            return PointPrefabArray[m_Prefab_index];
         }
     }
 }

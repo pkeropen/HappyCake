@@ -471,9 +471,12 @@ MonoBehaviour:
   FirstPersonCamera: {fileID: 20155940193251320}
   DetectedPlanePrefab: {fileID: 1654175882956584, guid: 6a35c744e5010405c847fad90282d2be,
     type: 3}
-  AndyVerticalPlanePrefab: {fileID: 0}
-  AndyHorizontalPlanePrefab: {fileID: 0}
-  PointPrefabArray: []
+  PointPrefabArray:
+  - {fileID: 100044, guid: d03bea883eadfdd47998e8e155d23671, type: 3}
+  - {fileID: 100000, guid: 9a59d5de31c54a64ea07544ccba390a5, type: 3}
+  - {fileID: 100032, guid: e1d5cbeb22958364cbc5950e38e18346, type: 3}
+  - {fileID: 100024, guid: 63a8049e034c54b4093348129c5fb2b6, type: 3}
+  - {fileID: 100000, guid: 8332a0b60abf641469cafc28ec97a630, type: 3}
 --- !u!1001 &688001843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -545,7 +548,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966607109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 2.7, z: 26.85}
+  m_LocalPosition: {x: -4, y: 1.8, z: 26.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 995495987}
